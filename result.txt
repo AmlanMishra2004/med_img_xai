@@ -1,0 +1,186 @@
+(med_img_xai) ~/med_img_xai 🌷🌷🌷~> /hom
+e/amlan/med_img_xai/.venv/bin/python /hom
+e/amlan/med_img_xai/train.py
+Initializing DenseNet-121 on cuda
+/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /home/amlan/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
+100%|█| 30.8M/30.8M [00:07<00:00, 4.34MB/
+Traceback (most recent call last):
+  File "/home/amlan/med_img_xai/train.py", line 452, in <module>
+    model = train_model()
+  File "/home/amlan/med_img_xai/train.py", line 297, in train_model
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+TypeError: ReduceLROnPlateau.__init__() got an unexpected keyword argument 'verbose'
+(med_img_xai) ~/med_img_xai 🌷🌷🌷~> /home/amlan/med_img_xai/.venv/bin/pytho
+n /home/amlan/med_img_xai/train.py
+Initializing DenseNet-121 on cuda
+Loading datasets...
+Training samples: 223414
+Validation samples: 234
+
+Starting training...
+Total epochs: 3
+Batch size: 16
+Initial learning rate: 0.0001
+Training samples: 223414
+Validation samples: 234
+Steps per epoch: 13964
+Total training steps: 41892
+================================================================================
+
+================================================================================
+Epoch 1/3
+================================================================================
+Epoch 1 [Train]:   0%|                            | 0/13964 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/amlan/med_img_xai/train.py", line 465, in <module>
+    model = train_model()
+  File "/home/amlan/med_img_xai/train.py", line 372, in train_model
+    train_loss = train_epoch(model, train_loader, criterion, optimizer, Config.device, epoch + 1)
+  File "/home/amlan/med_img_xai/train.py", line 213, in train_epoch
+    for batch_idx, (images, labels) in enumerate(pbar):
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/amlan/med_img_xai/train.py", line 104, in __getitem__
+    image = Image.open(img_path).convert('RGB')
+  File "/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/PIL/Image.py", line 3512, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/amlan/.cache/kagglehub/datasets/ashery/chexpert/versions/1/CheXpert-v1.0-small/train/patient29682/study1/view2_lateral.jpg'
+
+(med_img_xai) ~/med_img_xai 🌷🌷🌷~> /home/amlan/med_img_xai/.venv/bin/pytho
+n /home/amlan/med_img_xai/train.py
+Initializing DenseNet-121 on cuda
+Loading datasets...
+Training samples: 223414
+Validation samples: 234
+
+Starting training...
+Total epochs: 3
+Batch size: 16
+Initial learning rate: 0.0001
+Training samples: 223414
+Validation samples: 234
+Steps per epoch: 13964
+Total training steps: 41892
+================================================================================
+
+================================================================================
+Epoch 1/3
+================================================================================
+Epoch 1 [Train]: 100%|█████████████████████████████████| 13964/13964 [23:35<00:00,  9.87it/s, loss=0.3585]
+Epoch 1 [Valid]: 100%|███████████████████████████████████████| 15/15 [00:00<00:00, 21.06it/s, loss=0.3318]
+/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+
+────────────────────────────────────────────────────────────────────────────────
+Results:
+  Train Loss: 0.3585
+  Val Loss:   0.3318
+  Val AUROC:  0.8238
+
+Timing:
+  Epoch time: 23.6 min (1416s)
+  Estimated time remaining: 47.2 min (0.79h)
+  Total elapsed: 23.6 min
+
+Top 5 Pathologies by AUROC:
+  Support Devices               : 0.9458
+  Pleural Effusion              : 0.9399
+  Edema                         : 0.9152
+  Pleural Other                 : 0.9099
+  Lung Opacity                  : 0.9090
+
+Current learning rate: 1.00e-04
+
+✓ New best model saved! AUROC: 0.8238
+
+================================================================================
+Epoch 2/3
+================================================================================
+Epoch 2 [Train]: 100%|█████████████████████████████████| 13964/13964 [23:40<00:00,  9.83it/s, loss=0.3424]
+Epoch 2 [Valid]: 100%|███████████████████████████████████████| 15/15 [00:00<00:00, 21.92it/s, loss=0.3422]
+/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+
+────────────────────────────────────────────────────────────────────────────────
+Results:
+  Train Loss: 0.3424
+  Val Loss:   0.3422
+  Val AUROC:  0.7982
+
+Timing:
+  Epoch time: 23.7 min (1421s)
+  Estimated time remaining: 23.6 min (0.39h)
+  Total elapsed: 47.3 min
+
+Top 5 Pathologies by AUROC:
+  Support Devices               : 0.9302
+  Pleural Effusion              : 0.9289
+  Lung Opacity                  : 0.9096
+  Edema                         : 0.9096
+  No Finding                    : 0.8840
+
+Current learning rate: 1.00e-04
+
+⚠ No improvement for 1 epoch(s)
+
+================================================================================
+Epoch 3/3
+================================================================================
+Epoch 3 [Train]: 100%|█████████████████████████████████| 13964/13964 [23:32<00:00,  9.89it/s, loss=0.3338]
+Epoch 3 [Valid]: 100%|███████████████████████████████████████| 15/15 [00:00<00:00, 23.55it/s, loss=0.3354]
+/home/amlan/med_img_xai/.venv/lib/python3.10/site-packages/sklearn/metrics/_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+
+────────────────────────────────────────────────────────────────────────────────
+Results:
+  Train Loss: 0.3338
+  Val Loss:   0.3354
+  Val AUROC:  0.8292
+
+Timing:
+  Epoch time: 23.6 min (1413s)
+  Total elapsed: 70.8 min
+
+Top 5 Pathologies by AUROC:
+  Support Devices               : 0.9406
+  Edema                         : 0.9262
+  Pleural Effusion              : 0.9109
+  Lung Opacity                  : 0.9096
+  No Finding                    : 0.8816
+
+⚠ Learning rate reduced: 1.00e-04 → 1.00e-05
+
+Current learning rate: 1.00e-05
+
+✓ New best model saved! AUROC: 0.8292
+
+================================================================================
+Training completed!
+================================================================================
+Best validation AUROC: 0.8292
+Total training time: 70.9 min (1.18h)
+Average time per epoch: 23.6 min
+================================================================================
+
+Done! Best model saved to: ./best_model.pth
+(med_img_xai) ~/med_img_xai 🌷🌷🌷~> 
